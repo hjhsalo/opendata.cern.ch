@@ -32,6 +32,7 @@ from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
 from invenio_records_rest.utils import allow_all
+from .modules.records.utils import render_markdown_or_html
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
@@ -134,6 +135,7 @@ RECORDS_UI_ENDPOINTS = dict(
     artid=dict(
         pid_type='artid',
         route='/articles/<pid_value>',
+        view_imp='cernopendata.modules.records.utils.render_markdown_or_html',
         template='cernopendata_records_ui/articles/detail.html',
         permission_factory_imp=None,
         record_class='invenio_records_files.api:Record',
